@@ -49,6 +49,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function checkWinner() {
 
+
+          // Check for a draw
+        const cellsArr = [];
+        for (let i = 0; i < cells.length; i++) {
+            cellsArr.push(cells[i])
+        }
+        if (cellsArr.every(el => el.classList.contains(player1.className) || el.classList.contains(player2.className))) {
+            turn.innerHTML = "Draw!"
+            reset.classList.add("active")
+        }
+
         // Loop through arrays of possible combinations
         for (let i = 0; i < combinations.length; i++) {
 
@@ -62,24 +73,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 highlight([cell1, cell2, cell3])
                 reset.classList.add("active")
-            }
-
-            if (cell1.classList.contains("circle") && cell2.classList.contains("circle") && cell3.classList.contains("circle")) {
+            } else if (cell1.classList.contains("circle") && cell2.classList.contains("circle") && cell3.classList.contains("circle")){
                 turn.innerHTML = `<div class="winner">Player ${player2.id} won!</div>`
 
                 highlight([cell1, cell2, cell3])
                 reset.classList.add("active")
             }
-        }
-
-        // Check for a draw
-        const cellsArr = [];
-        for (let i = 0; i < cells.length; i++) {
-            cellsArr.push(cells[i])
-        }
-        if (cellsArr.every(el => el.classList.contains(player1.className) || el.classList.contains(player2.className))) {
-            turn.innerHTML = "Draw!"
-            reset.classList.add("active")
         }
 
     }
