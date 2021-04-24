@@ -34,8 +34,8 @@ button {
 }
 input,
 textarea {
-    border-radius: 0 !important;
-    box-shadow: none !important;
+    border-radius: 0;
+    box-shadow: none;
 }
 ul,
 li {
@@ -50,6 +50,20 @@ li {
     padding: 0 24px;
     margin: 0 auto;
 }
+
+.active-turn {
+    color: crimson;
+}
+.winner{
+    color: #000;
+}
+.winning-cell {
+    background-color: darkseagreen;
+}
+.cross, .circle{
+    pointer-events: none;
+}
+
 
 @media screen and (max-width: 1919.98px) {
     .container {
